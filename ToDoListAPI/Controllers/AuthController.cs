@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using ToDoListAPI.Services; // Đảm bảo bạn dùng đúng namespace của JwtService và các dịch vụ liên quan
 using Microsoft.EntityFrameworkCore; // Để sử dụng phương thức Include và các chức năng liên quan đến EF
 using BCrypt.Net;
+using System.Linq;
 
 namespace ToDoListAPI.Controllers
 {
@@ -33,8 +34,9 @@ namespace ToDoListAPI.Controllers
             }
 
             // Lấy Role của User và tạo Token
-            var role = user.UserRoles.FirstOrDefault()?.Role.Name ?? "User"; // Lấy Role của User
-            var token = _jwtService.GenerateToken(user.Username, role); // Tạo token với Role
+                var roles = user.UserRoles.Select(ur => ur.Role.Name).ToList();
+                var token = _jwtService.GenerateToken(user.Id, user.Username, roles);
+
 
             return Ok(new { token });
         }
