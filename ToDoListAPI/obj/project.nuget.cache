@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "GaVdJDRZXi4=",
+  "dgSpecHash": "HI/1gu6Ckm8=",
   "success": true,
   "projectFilePath": "D:\\BaiCuoiKi.Backend\\ToDoListAPI\\ToDoListAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NguyenKiet\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\NguyenKiet\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\NguyenKiet\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\NguyenKiet\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\NguyenKiet\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.3.0\\microsoft.aspnetcore.antiforgery.2.3.0.nupkg.sha512",
     "C:\\Users\\NguyenKiet\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.3.0\\microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
