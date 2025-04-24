@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using ToDoListAPI.Data;
+using ToDoListAPI.Models;
+using ToDoListAPI.DTOs;
 
 [Authorize]
 [Route("api/[controller]")]

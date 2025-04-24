@@ -1,50 +1,27 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoListAPI.Services; // Đảm bảo bạn dùng đúng namespace của JwtService và các dịch vụ liên quan
-using Microsoft.EntityFrameworkCore; // Để sử dụng phương thức Include và các chức năng liên quan đến EF
-using BCrypt.Net;
-using System.Linq;
+using ToDoListAPI.Services;
+using ToDoListAPI.DTOs;
 
-namespace ToDoListAPI.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class AuthController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AuthController : ControllerBase
+    private readonly AuthService _authService;
+
+    public AuthController(AuthService authService)
     {
-        private readonly JwtService _jwtService;
-        private readonly ApplicationDbContext _context;
-
-        public AuthController(JwtService jwtService, ApplicationDbContext context)
-        {
-            _jwtService = jwtService;
-            _context = context;
-        }
-
-        [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginRequest request)
-        {
-            // Kiểm tra người dùng trong cơ sở dữ liệu
-            var user = _context.Users
-                .Include(u => u.UserRoles)
-                .ThenInclude(ur => ur.Role)
-                .FirstOrDefault(u => u.Username == request.Username);
-
-            if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
-            {
-                return Unauthorized("Tài khoản hoặc mật khẩu sai.");
-            }
-
-            // Lấy Role của User và tạo Token
-                var roles = user.UserRoles.Select(ur => ur.Role.Name).ToList();
-                var token = _jwtService.GenerateToken(user.Id, user.Username, roles);
-
-
-            return Ok(new { token });
-        }
+        _authService = authService;
     }
 
-    public class LoginRequest
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginDTO loginDto)
     {
-        public string Username { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
+        var response = await _authService.Login(loginDto);
+        if (response == null)
+        {
+            return Unauthorized();
+        }
+
+        return Ok(response);
     }
 }

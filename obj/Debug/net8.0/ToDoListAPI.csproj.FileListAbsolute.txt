@@ -1,0 +1,8 @@
+D:\BaiCuoiKi.Backend\obj\Debug\net8.0\ToDoListAPI.csproj.AssemblyReference.cache
+D:\BaiCuoiKi.Backend\obj\Debug\net8.0\ToDoListAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\BaiCuoiKi.Backend\obj\Debug\net8.0\ToDoListAPI.AssemblyInfoInputs.cache
+D:\BaiCuoiKi.Backend\obj\Debug\net8.0\ToDoListAPI.AssemblyInfo.cs
+D:\BaiCuoiKi.Backend\obj\Debug\net8.0\ToDoListAPI.csproj.CoreCompileInputs.cache
+D:\BaiCuoiKi.Backend\obj\Debug\net8.0\ToDoListAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\BaiCuoiKi.Backend\obj\Debug\net8.0\ToDoListAPI.MvcApplicationPartsAssemblyInfo.cache
+D:\BaiCuoiKi.Backend\obj\Debug\net8.0\ToDoListAPI.sourcelink.json
